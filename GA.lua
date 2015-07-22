@@ -207,7 +207,6 @@ end
 local function Main()
 	-- Generate population
 	local population = GeneratePool()
-	local current_best
 	local new_population = {}
 	local generation = 0
 	while true do
@@ -248,8 +247,11 @@ local function Main()
 			end
 		end
 		population = new_population
-		current_best = SelectBest(population)
-		if(generation > max_loop) then print("Best for now : " .. current_best.decodedString) break end
+		if(generation > max_loop) then 
+			local current_best = SelectBest(population)
+			print("Best for now : " .. current_best.decodedString)
+			break
+		end
 	end
 end
 
