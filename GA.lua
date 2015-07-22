@@ -49,7 +49,7 @@ function chromosome:Decode()
 		end
 	end
 	
-	local content = "op"
+	local content = "operator"
 	local i=1
 	while i<=#result do
 		local temp = tonumber(result[i])
@@ -249,7 +249,7 @@ local function Main()
 		end
 		population = new_population
 		current_best = SelectBest(population)
-		if(generation > 50000) then print("Best for now : " .. current_best.decodedString) break end
+		if(generation > max_loop) then print("Best for now : " .. current_best.decodedString) break end
 	end
 end
 
